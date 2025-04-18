@@ -296,7 +296,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     #print(chat_id)
     user = get_user(chat_id)
     if user is None:
-        welcome_message = """*Welcome to Aethon Official  Official Bot*
+        welcome_message = """*Welcome to Aethon Official Bot*
 
 The Smartest Trading Telegram bot. Aethon Official  enables you to escape from incoming rug pulls, quickly buy or sell tokens and set automations like Limit Orders, DCA, and Sniping.
 
@@ -959,6 +959,22 @@ Choose the option to import the wallet
         context.user_data['import_wallet'] = "key"
         await context.bot.send_message(chat_id=chat_id, parse_mode=ParseMode.MARKDOWN, text=f"""Enter the private key down below:""")
         pass
+
+    elif query.data == "premium_menu":
+        await context.bot.send_message(chat_id=chat_id, parse_mode=ParseMode.MARKDOWN, text=f"""
+🚀 *Premium Tools:*
+
+• Sniping Alerts
+• Private Copy Trading
+• Early Bird Alpha Signals
+• Advanced Rug Detection
+• Wallet Watch & Automation
+• Future AI-based Trade Signals
+
+To activate premium tools, deposit at least *0.333 SOL* (~$50) to your wallet.
+
+Your account will automatically be upgraded once the required deposit is detected.
+""")
     elif query.data == "refer":
         await referral(chat_id, context)
     elif query.data == "buy":
