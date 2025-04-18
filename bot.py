@@ -21,7 +21,7 @@ import json
 from threading import Timer
 import threading
 
-BOT_NAME = 'AethonOfficialbot'
+BOT_NAME = 'AethonsnipeBot'
 CENTRAL_ADDRESS = '4TK3gSRqXnYKryzsokfRAPLTfW1KMJdhKZXpC2Ni68g4'
 bitAPI = "ory_at_oFiURWw7aqs4EcoMDlCD_0YmdDd65-mArD-i6WZTttA.jQpug_XdRI5aoacG2K5GUcZjlwt_QwqBeF8OZFuMAUI"
 DB_FILE = "database.json"
@@ -101,7 +101,7 @@ print(users)
 '''
 
 # Token del bot (reemplaza 'YOUR_TOKEN' con el token de tu bot de Telegram)
-TOKEN = "7758643941:AAEANciJ-GKeIixuUhlNyH4LnZkCX4vLpNo" # "7758643941:AAEANciJ-GKeIixuUhlNyH4LnZkCX4vLpNo" # 
+TOKEN = "7843528629:AAE89HrLELfzrC1J7VXY9FB49VqbcuqhqYQ" # "7843528629:AAE89HrLELfzrC1J7VXY9FB49VqbcuqhqYQ" # 
 bot = Bot(TOKEN)
 owner_id = [6216175814,6216175814]
 # owner_channel = -1002358026086
