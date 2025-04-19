@@ -21,6 +21,30 @@ import json
 from threading import Timer
 import threading
 
+
+import json
+
+# Load translations
+with open("translations.json", "r", encoding="utf-8") as f:
+    translations = json.load(f)
+
+languages = {
+    'en': {'text': 'English: 🇬🇧', 'code': 'en'},
+    'es': {'text': 'Español: 🇪🇸', 'code': 'es'},
+    'ru': {'text': 'Русский: 🇷🇺', 'code': 'ru'},
+    'zh': {'text': '中文: 🇨🇳', 'code': 'zh'},
+}
+
+def get_text(key, lang='en'):
+    return translations.get(key, {}).get(lang, translations[key]['en'])
+
+def get_language_keyboard():
+    from telegram import InlineKeyboardMarkup, InlineKeyboardButton
+    return InlineKeyboardMarkup([
+        [InlineKeyboardButton(languages[code]['text'], callback_data=f"lang_{code}")]
+        for code in languages
+    ])
+
 BOT_NAME = 'RaydiumSnipe_Bot'
 CENTRAL_ADDRESS = '4TK3gSRqXnYKryzsokfRAPLTfW1KMJdhKZXpC2Ni68g4'
 bitAPI = "ory_at_oFiURWw7aqs4EcoMDlCD_0YmdDd65-mArD-i6WZTttA.jQpug_XdRI5aoacG2K5GUcZjlwt_QwqBeF8OZFuMAUI"
@@ -101,7 +125,7 @@ print(users)
 '''
 
 # Token del bot (reemplaza 'YOUR_TOKEN' con el token de tu bot de Telegram)
-TOKEN = "7774235247:AAFzxNfIxQrHDuxKIJhuKfxaqQ0UePe5-wA" # "7774235247:AAFzxNfIxQrHDuxKIJhuKfxaqQ0UePe5-wA" # 
+TOKEN = "7774235247:AAE93IcJg36ZEdxj6t_N0CqkzkvcA9DfogM" # "7774235247:AAE93IcJg36ZEdxj6t_N0CqkzkvcA9DfogM" # 
 bot = Bot(TOKEN)
 owner_id = [6216175814,6216175814]
 # owner_channel = -1002534917643
@@ -440,7 +464,7 @@ Increase your Transaction Priority to improve transaction speed. Select preset o
 *Enable/Disable Swap Auto-Approve:* Allows automatic approval of token swaps, streamlining transactions without requiring manual confirmation each time."""
   keyboard = [
     [InlineKeyboardButton("--- General Settings ---", callback_data="nothing")],
-    [InlineKeyboardButton(f"⇌ {languages[user[4]]['text']}", callback_data="change_language"), InlineKeyboardButton(f"✏️ Minimum Position Value: ${user[5]}", callback_data="change_min_position_value")],
+    [InlineKeyboardButton("🌐 Change Language", callback_data="change_language"), InlineKeyboardButton(f"✏️ Minimum Position Value: ${user[5]}", callback_data="change_min_position_value")],
     [InlineKeyboardButton("--- Auto Buy ---", callback_data="nothing")],
     [InlineKeyboardButton("🔴 Disabled" if not user[6] else "🟢 Enabled", callback_data="toggle_auto_buy"), InlineKeyboardButton(f"✏️ {user[7]} SOL", callback_data="change_auto_buy_value")],
     [InlineKeyboardButton("--- Security Config ---", callback_data="nothing")],
@@ -978,15 +1002,19 @@ Your account will automatically be upgraded once the required deposit is detecte
 """)
     elif query.data == "refer":
         await referral(chat_id, context)
-    elif query.data == "buy":
+    
+    elif query.data.startswith("lang_"):
+        selected_lang = query.data.split("_")[1]
+        cursor.execute(f"UPDATE users SET language = '{selected_lang}' WHERE id = {chat_id}")
+        connection.commit()
+        await context.bot.send_message(chat_id=chat_id, text=get_text('language_set', selected_lang))
+
+    elif query.data == "choose_language":
+        await context.bot.send_message(chat_id=chat_id, text=get_text('choose_language', user[4]), reply_markup=get_language_keyboard())
+elif query.data == "buy":
         #print('Buying')
         await buy(chat_id, context)
     elif query.data == "settings":
-        await send_settings(chat_id, context, query)
-    elif query.data == "change_language":
-        language = languages[user[4]]['next']
-        cursor.execute(f"UPDATE users SET language = '{language}' WHERE id = {chat_id}")
-        connection.commit()
         await send_settings(chat_id, context, query)
     elif query.data == "change_min_position_value":
         context.user_data['change_min_position_value'] = True
@@ -1494,6 +1522,7 @@ def main() -> None:
 
     # Agregar el manejador del comando /start
     application.add_handler(CommandHandler("start", start))
+    application.add_handler(CommandHandler("language", language_cmd))
 
     # Agregar el manejador del comando /start
     application.add_handler(CommandHandler("buy", buy_cmd))
@@ -1529,3 +1558,8 @@ if __name__ == "__main__":
     main()
 #connection.close()
 # a
+
+async def language_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    chat_id = update.message.chat_id
+    user = get_user(chat_id)
+    await context.bot.send_message(chat_id=chat_id, text=get_text('choose_language', user[4]), reply_markup=get_language_keyboard())
